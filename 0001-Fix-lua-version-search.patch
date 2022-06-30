@@ -1,0 +1,26 @@
+From 889e86f2f0350e6b2fe948b3541986536184f767 Mon Sep 17 00:00:00 2001
+From: William Douglas <william.douglas@intel.com>
+Date: Thu, 30 Jun 2022 12:55:00 -0700
+Subject: [PATCH] Fix lua version search
+
+---
+ meson.build | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/meson.build b/meson.build
+index b1904c7..e97e76b 100644
+--- a/meson.build
++++ b/meson.build
+@@ -76,6 +76,9 @@ if system_lua
+     if not lua_dep.found()
+       lua_dep = dependency('lua', version: ['>=5.3.0'], required: false)
+     endif
++    if not lua_dep.found()
++        lua_dep = dependency('lua', required: false)
++    endif
+     if not lua_dep.found()
+       error ('Could not find lua. Lua version 5.4 or 5.3 required')
+     endif
+-- 
+2.36.1
+

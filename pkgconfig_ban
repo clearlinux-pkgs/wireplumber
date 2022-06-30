@@ -1,0 +1,8 @@
+# This file contains pkgconfig build requirements that get picked up
+# but are undesirable. One entry per line, no whitespace.
+lua-5.3
+lua-5.4
+lua5.3
+lua5.4
+lua54
+lua53
