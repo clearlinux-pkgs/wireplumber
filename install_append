@@ -1,0 +1,3 @@
+mkdir -p %{buildroot}/usr/lib/systemd/user/pipewire.service.wants
+ln -s ../wireplumber.service %{buildroot}/usr/lib/systemd/user/pipewire.service.wants/
+ln -s ../wireplumber.service %{buildroot}/usr/lib/systemd/user/pipewire-session-manager.service
