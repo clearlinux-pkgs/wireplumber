@@ -5,7 +5,7 @@
 #
 Name     : wireplumber
 Version  : 0.4.14
-Release  : 7
+Release  : 8
 URL      : https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.4.14/wireplumber-0.4.14.tar.gz
 Source0  : https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.4.14/wireplumber-0.4.14.tar.gz
 Summary  : No detailed summary available
@@ -115,7 +115,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1695058800
+export SOURCE_DATE_EPOCH=1695081517
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -136,7 +136,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 ## install_append content
 mkdir -p %{buildroot}/usr/lib/systemd/user/pipewire.service.wants
 ln -s ../wireplumber.service %{buildroot}/usr/lib/systemd/user/pipewire.service.wants/
-ln -s ../wireplumber.service %{buildroot}/usr/lib/systemd/user/pipewire-session-manager.service
+ln -s wireplumber.service %{buildroot}/usr/lib/systemd/user/pipewire-session-manager.service
 ## install_append end
 
 %files
