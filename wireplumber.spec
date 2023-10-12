@@ -4,10 +4,10 @@
 # Using build pattern: meson
 #
 Name     : wireplumber
-Version  : 0.4.14
-Release  : 8
-URL      : https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.4.14/wireplumber-0.4.14.tar.gz
-Source0  : https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.4.14/wireplumber-0.4.14.tar.gz
+Version  : 0.4.15
+Release  : 9
+URL      : https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.4.15/wireplumber-0.4.15.tar.gz
+Source0  : https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.4.15/wireplumber-0.4.15.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT
@@ -107,30 +107,57 @@ services components for the wireplumber package.
 
 
 %prep
-%setup -q -n wireplumber-0.4.14
-cd %{_builddir}/wireplumber-0.4.14
+%setup -q -n wireplumber-0.4.15
+cd %{_builddir}/wireplumber-0.4.15
+pushd ..
+cp -a wireplumber-0.4.15 buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1695081517
+export SOURCE_DATE_EPOCH=1697130080
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dsystem-lua=true \
+CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
+ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
+meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dsystem-lua=true \
 -Delogind=disabled  builddir
 ninja -v -C builddir
+CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 -O3" CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 " LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dsystem-lua=true \
+-Delogind=disabled  builddiravx2
+ninja -v -C builddiravx2
 
 %install
+export GCC_IGNORE_WERROR=1
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
+ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
 mkdir -p %{buildroot}/usr/share/package-licenses/wireplumber
 cp %{_builddir}/wireplumber-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/wireplumber/eba84e7971aadceae1afd0226007498a4c1ed96b || :
+DESTDIR=%{buildroot}-v3 ninja -C builddiravx2 install
 DESTDIR=%{buildroot} ninja -C builddir install
 %find_lang wireplumber
 ## install_append content
@@ -138,12 +165,16 @@ mkdir -p %{buildroot}/usr/lib/systemd/user/pipewire.service.wants
 ln -s ../wireplumber.service %{buildroot}/usr/lib/systemd/user/pipewire.service.wants/
 ln -s wireplumber.service %{buildroot}/usr/lib/systemd/user/pipewire-session-manager.service
 ## install_append end
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
 
 %files bin
 %defattr(-,root,root,-)
+/V3/usr/bin/wireplumber
+/V3/usr/bin/wpctl
+/V3/usr/bin/wpexec
 /usr/bin/wireplumber
 /usr/bin/wpctl
 /usr/bin/wpexec
@@ -190,6 +221,7 @@ ln -s wireplumber.service %{buildroot}/usr/lib/systemd/user/pipewire-session-man
 /usr/share/wireplumber/scripts/policy-bluetooth.lua
 /usr/share/wireplumber/scripts/policy-device-profile.lua
 /usr/share/wireplumber/scripts/policy-device-routes.lua
+/usr/share/wireplumber/scripts/policy-dsp.lua
 /usr/share/wireplumber/scripts/policy-endpoint-client-links.lua
 /usr/share/wireplumber/scripts/policy-endpoint-client.lua
 /usr/share/wireplumber/scripts/policy-endpoint-device.lua
@@ -198,6 +230,7 @@ ln -s wireplumber.service %{buildroot}/usr/lib/systemd/user/pipewire-session-man
 /usr/share/wireplumber/scripts/static-endpoints.lua
 /usr/share/wireplumber/scripts/suspend-node.lua
 /usr/share/wireplumber/wireplumber.conf
+/usr/share/zsh/site-functions/_wpctl
 
 %files dev
 %defattr(-,root,root,-)
@@ -241,8 +274,23 @@ ln -s wireplumber.service %{buildroot}/usr/lib/systemd/user/pipewire-session-man
 
 %files lib
 %defattr(-,root,root,-)
+/V3/usr/lib64/libwireplumber-0.4.so.0.4.15
+/V3/usr/lib64/wireplumber-0.4/libwireplumber-module-default-nodes-api.so
+/V3/usr/lib64/wireplumber-0.4/libwireplumber-module-default-nodes.so
+/V3/usr/lib64/wireplumber-0.4/libwireplumber-module-default-profile.so
+/V3/usr/lib64/wireplumber-0.4/libwireplumber-module-file-monitor-api.so
+/V3/usr/lib64/wireplumber-0.4/libwireplumber-module-logind.so
+/V3/usr/lib64/wireplumber-0.4/libwireplumber-module-lua-scripting.so
+/V3/usr/lib64/wireplumber-0.4/libwireplumber-module-metadata.so
+/V3/usr/lib64/wireplumber-0.4/libwireplumber-module-mixer-api.so
+/V3/usr/lib64/wireplumber-0.4/libwireplumber-module-portal-permissionstore.so
+/V3/usr/lib64/wireplumber-0.4/libwireplumber-module-reserve-device.so
+/V3/usr/lib64/wireplumber-0.4/libwireplumber-module-si-audio-adapter.so
+/V3/usr/lib64/wireplumber-0.4/libwireplumber-module-si-audio-endpoint.so
+/V3/usr/lib64/wireplumber-0.4/libwireplumber-module-si-node.so
+/V3/usr/lib64/wireplumber-0.4/libwireplumber-module-si-standard-link.so
 /usr/lib64/libwireplumber-0.4.so.0
-/usr/lib64/libwireplumber-0.4.so.0.4.14
+/usr/lib64/libwireplumber-0.4.so.0.4.15
 /usr/lib64/wireplumber-0.4/libwireplumber-module-default-nodes-api.so
 /usr/lib64/wireplumber-0.4/libwireplumber-module-default-nodes.so
 /usr/lib64/wireplumber-0.4/libwireplumber-module-default-profile.so
