@@ -6,10 +6,10 @@
 # autospec commit: e661f3a
 #
 Name     : wireplumber
-Version  : 0.4.16
-Release  : 10
-URL      : https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.4.16/wireplumber-0.4.16.tar.gz
-Source0  : https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.4.16/wireplumber-0.4.16.tar.gz
+Version  : 0.4.17
+Release  : 11
+URL      : https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.4.17/wireplumber-0.4.17.tar.gz
+Source0  : https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.4.17/wireplumber-0.4.17.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT
@@ -109,10 +109,10 @@ services components for the wireplumber package.
 
 
 %prep
-%setup -q -n wireplumber-0.4.16
-cd %{_builddir}/wireplumber-0.4.16
+%setup -q -n wireplumber-0.4.17
+cd %{_builddir}/wireplumber-0.4.17
 pushd ..
-cp -a wireplumber-0.4.16 buildavx2
+cp -a wireplumber-0.4.17 buildavx2
 popd
 
 %build
@@ -120,7 +120,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1700993458
+export SOURCE_DATE_EPOCH=1701725950
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -277,7 +277,7 @@ ln -s wireplumber.service %{buildroot}/usr/lib/systemd/user/pipewire-session-man
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libwireplumber-0.4.so.0.4.16
+/V3/usr/lib64/libwireplumber-0.4.so.0.4.17
 /V3/usr/lib64/wireplumber-0.4/libwireplumber-module-default-nodes-api.so
 /V3/usr/lib64/wireplumber-0.4/libwireplumber-module-default-nodes.so
 /V3/usr/lib64/wireplumber-0.4/libwireplumber-module-default-profile.so
@@ -293,7 +293,7 @@ ln -s wireplumber.service %{buildroot}/usr/lib/systemd/user/pipewire-session-man
 /V3/usr/lib64/wireplumber-0.4/libwireplumber-module-si-node.so
 /V3/usr/lib64/wireplumber-0.4/libwireplumber-module-si-standard-link.so
 /usr/lib64/libwireplumber-0.4.so.0
-/usr/lib64/libwireplumber-0.4.so.0.4.16
+/usr/lib64/libwireplumber-0.4.so.0.4.17
 /usr/lib64/wireplumber-0.4/libwireplumber-module-default-nodes-api.so
 /usr/lib64/wireplumber-0.4/libwireplumber-module-default-nodes.so
 /usr/lib64/wireplumber-0.4/libwireplumber-module-default-profile.so
