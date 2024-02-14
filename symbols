@@ -131,8 +131,10 @@ libwireplumber-0.5.so.0:wp_link_get_type
 libwireplumber-0.5.so.0:wp_link_new_from_factory
 libwireplumber-0.5.so.0:wp_link_state_get_type
 libwireplumber-0.5.so.0:wp_log_checked
-libwireplumber-0.5.so.0:wp_log_set_global_level
+libwireplumber-0.5.so.0:wp_log_set_level
 libwireplumber-0.5.so.0:wp_log_topic_init
+libwireplumber-0.5.so.0:wp_log_topic_register
+libwireplumber-0.5.so.0:wp_log_topic_unregister
 libwireplumber-0.5.so.0:wp_log_writer_default
 libwireplumber-0.5.so.0:wp_lookup_dirs_get_type
 libwireplumber-0.5.so.0:wp_metadata_clear
@@ -271,9 +273,10 @@ libwireplumber-0.5.so.0:wp_session_item_remove
 libwireplumber-0.5.so.0:wp_session_item_reset
 libwireplumber-0.5.so.0:wp_session_item_set_properties
 libwireplumber-0.5.so.0:wp_settings_features_get_type
+libwireplumber-0.5.so.0:wp_settings_find
 libwireplumber-0.5.so.0:wp_settings_get
-libwireplumber-0.5.so.0:wp_settings_get_instance
 libwireplumber-0.5.so.0:wp_settings_get_type
+libwireplumber-0.5.so.0:wp_settings_new
 libwireplumber-0.5.so.0:wp_settings_subscribe
 libwireplumber-0.5.so.0:wp_settings_subscribe_closure
 libwireplumber-0.5.so.0:wp_settings_unsubscribe
