@@ -136,6 +136,7 @@ libwireplumber-0.5.so.0:wp_link_new_from_factory
 libwireplumber-0.5.so.0:wp_link_state_get_type
 libwireplumber-0.5.so.0:wp_log_checked
 libwireplumber-0.5.so.0:wp_log_set_level
+libwireplumber-0.5.so.0:wp_log_topic_flags_get_type
 libwireplumber-0.5.so.0:wp_log_topic_init
 libwireplumber-0.5.so.0:wp_log_topic_register
 libwireplumber-0.5.so.0:wp_log_topic_unregister
