@@ -6,10 +6,10 @@
 # autospec commit: a5d3013
 #
 Name     : wireplumber
-Version  : 0.5.4
-Release  : 19
-URL      : https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.5.4/wireplumber-0.5.4.tar.gz
-Source0  : https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.5.4/wireplumber-0.5.4.tar.gz
+Version  : 0.5.5
+Release  : 20
+URL      : https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.5.5/wireplumber-0.5.5.tar.gz
+Source0  : https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.5.5/wireplumber-0.5.5.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : MIT
@@ -118,10 +118,10 @@ services components for the wireplumber package.
 
 
 %prep
-%setup -q -n wireplumber-0.5.4
-cd %{_builddir}/wireplumber-0.5.4
+%setup -q -n wireplumber-0.5.5
+cd %{_builddir}/wireplumber-0.5.5
 pushd ..
-cp -a wireplumber-0.5.4 buildavx2
+cp -a wireplumber-0.5.5 buildavx2
 popd
 
 %build
@@ -129,7 +129,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1719422135
+export SOURCE_DATE_EPOCH=1719596838
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -309,7 +309,7 @@ ln -s wireplumber.service %{buildroot}/usr/lib/systemd/user/pipewire-session-man
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libwireplumber-0.5.so.0.504.0
+/V3/usr/lib64/libwireplumber-0.5.so.0.505.0
 /V3/usr/lib64/wireplumber-0.5/libwireplumber-module-dbus-connection.so
 /V3/usr/lib64/wireplumber-0.5/libwireplumber-module-default-nodes-api.so
 /V3/usr/lib64/wireplumber-0.5/libwireplumber-module-file-monitor-api.so
@@ -325,7 +325,7 @@ ln -s wireplumber.service %{buildroot}/usr/lib/systemd/user/pipewire-session-man
 /V3/usr/lib64/wireplumber-0.5/libwireplumber-module-si-standard-link.so
 /V3/usr/lib64/wireplumber-0.5/libwireplumber-module-standard-event-source.so
 /usr/lib64/libwireplumber-0.5.so.0
-/usr/lib64/libwireplumber-0.5.so.0.504.0
+/usr/lib64/libwireplumber-0.5.so.0.505.0
 /usr/lib64/wireplumber-0.5/libwireplumber-module-dbus-connection.so
 /usr/lib64/wireplumber-0.5/libwireplumber-module-default-nodes-api.so
 /usr/lib64/wireplumber-0.5/libwireplumber-module-file-monitor-api.so
