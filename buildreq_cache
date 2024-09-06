@@ -1,4 +1,4 @@
-0.5.5
+0.5.6
 doxygen
 glib-dev
 gobject-introspection
@@ -6,6 +6,5 @@ pkgconfig(glib-2.0)
 pkgconfig(libspa-0.2)
 pkgconfig(libsystemd)
 pkgconfig(systemd)
-pypi(packaging)
 pypi-sphinx
 valgrind
