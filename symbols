@@ -221,6 +221,15 @@ libwireplumber-0.5.so.0:wp_plugin_get_name
 libwireplumber-0.5.so.0:wp_plugin_get_type
 libwireplumber-0.5.so.0:wp_port_get_direction
 libwireplumber-0.5.so.0:wp_port_get_type
+libwireplumber-0.5.so.0:wp_proc_info_get_arg
+libwireplumber-0.5.so.0:wp_proc_info_get_cgroup
+libwireplumber-0.5.so.0:wp_proc_info_get_n_args
+libwireplumber-0.5.so.0:wp_proc_info_get_parent_pid
+libwireplumber-0.5.so.0:wp_proc_info_get_pid
+libwireplumber-0.5.so.0:wp_proc_info_get_type
+libwireplumber-0.5.so.0:wp_proc_info_ref
+libwireplumber-0.5.so.0:wp_proc_info_unref
+libwireplumber-0.5.so.0:wp_proc_utils_get_proc_info
 libwireplumber-0.5.so.0:wp_properties_add
 libwireplumber-0.5.so.0:wp_properties_add_from_dict
 libwireplumber-0.5.so.0:wp_properties_add_keys
