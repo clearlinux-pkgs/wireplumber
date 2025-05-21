@@ -7,7 +7,7 @@
 #
 Name     : wireplumber
 Version  : 0.5.10
-Release  : 25
+Release  : 26
 URL      : https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.5.10/wireplumber-0.5.10.tar.gz
 Source0  : https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.5.10/wireplumber-0.5.10.tar.gz
 Summary  : No detailed summary available
@@ -128,7 +128,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1747813729
+export SOURCE_DATE_EPOCH=1747847474
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
